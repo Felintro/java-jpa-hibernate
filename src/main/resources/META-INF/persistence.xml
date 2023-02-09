@@ -7,19 +7,21 @@
 
     <!-- Banco de dados em uso: cursos_alura -->
     <!-- Uma persistence-unit representa uma unidade de persistência, basicamente um banco de dados. -->
-    <persistence-unit name="cursos_alura" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="curso_alura" transaction-type="RESOURCE_LOCAL">
 
         <!-- Propriedades de cursos_alura -->
         <properties>
 
             <!-- Propriedades básicas do banco de dados: -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/cursos_alura"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/curso_alura"/>
             <property name="javax.persistence.jdbc.user" value="admin"/>
             <property name="javax.persistence.jdbc.password" value="admin"/>
 
             <!-- Classe que representa o Dialeto do banco de dados escolhido:  -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+
+            <property name="hibernate.show_sql" value="true"/>
 
         </properties>
 
