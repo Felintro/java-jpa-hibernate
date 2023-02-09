@@ -18,15 +18,26 @@
             <property name="javax.persistence.jdbc.user" value="admin"/>
             <property name="javax.persistence.jdbc.password" value="admin"/>
 
-            <!-- Classe que representa o Dialeto do banco de dados escolhido:  -->
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <!-- Propriedades de configuração do Hibernate:-->
 
+            <!-- Classe que representa o Dialeto do banco de dados escolhido:  -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+
+            <!-- Mostrar as queries SQL no log/console-->
             <property name="hibernate.show_sql" value="true"/>
+
+            <!-- Auto gerenciamento dos schemas do banco (usar apenas em estudos) -->
+            <!--
+                valores possíveis:
+                     create -> Ao instanciar o EntityManagerFactory, o hibernate verifica o schema e cria as tabelas;
+                     create-drop -> Ao finalizar a execução, automaticamente os dados são dropados;
+                     update -> Atualização automática (verifica alterações no código Java e altera no banco de dados), porém não apaga nada;
+                     validate -> Não altera nada no banco, apenas verifica e lança no log se tiver inconsistências;
+             -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
 
         </properties>
 
     </persistence-unit>
-
-
 
 </persistence>
