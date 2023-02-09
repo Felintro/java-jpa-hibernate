@@ -6,7 +6,9 @@ package br.com.felintro.loja.testes;
  * Data: 09/02/2023
  */
 
+import br.com.felintro.loja.dao.ProdutoDAO;
 import br.com.felintro.loja.model.Produto;
+import br.com.felintro.loja.utils.JPAUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -21,14 +23,13 @@ public class CadastroDeProduto {
         produto.setDescricao("6GB RAM + 128GB armazenamento");
         produto.setPreco(new BigDecimal("1250"));
 
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("curso_alura");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityManager entityManager = JPAUtil.getEntityManager();
+        ProdutoDAO produtoDAO = new ProdutoDAO(entityManager);
 
         entityManager.getTransaction().begin();
-        entityManager.persist(produto);
+        produtoDAO.cadastrar(produto);
         entityManager.getTransaction().commit();
         entityManager.close();
-
 
 
     }
