@@ -19,7 +19,7 @@ import java.math.BigDecimal;
 public class Produto {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_produto")
     private Long id;
 
@@ -31,8 +31,5 @@ public class Produto {
 
     @Column(name = "vl_preco", nullable = false)
     private BigDecimal preco;
-
-
-
 
 }
