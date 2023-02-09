@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<persistence version="2.2"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+
+    <!-- Banco de dados em uso: cursos_alura -->
+    <!-- Uma persistence-unit representa uma unidade de persistência, basicamente um banco de dados. -->
+    <persistence-unit name="cursos_alura" transaction-type="RESOURCE_LOCAL">
+
+        <!-- Propriedades de cursos_alura -->
+        <properties>
+
+            <!-- Propriedades básicas do banco de dados: -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/cursos_alura"/>
+            <property name="javax.persistence.jdbc.user" value="admin"/>
+            <property name="javax.persistence.jdbc.password" value="admin"/>
+
+            <!-- Classe que representa o Dialeto do banco de dados escolhido:  -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+
+        </properties>
+
+    </persistence-unit>
+
+
+
+</persistence>
