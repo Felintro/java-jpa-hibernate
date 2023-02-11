@@ -6,7 +6,9 @@ package br.com.felintro.loja.model;
  * Data: 09/02/2023
  */
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -16,6 +18,8 @@ import java.math.BigDecimal;
 @Table(name = "produto")
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Produto {
 
     @Id
