@@ -25,6 +25,7 @@
 
             <!-- Mostrar as queries SQL no log/console-->
             <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
 
             <!-- Auto gerenciamento dos schemas do banco (usar apenas em estudos) -->
             <!--
@@ -34,7 +35,7 @@
                      update -> Atualização automática (verifica alterações no código Java e altera no banco de dados), porém não apaga nada;
                      validate -> Não altera nada no banco, apenas verifica e lança no log se tiver inconsistências;
              -->
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
 
         </properties>
 
