@@ -10,6 +10,7 @@ import br.com.felintro.loja.model.Produto;
 import lombok.AllArgsConstructor;
 
 import javax.persistence.EntityManager;
+import java.math.BigDecimal;
 import java.util.List;
 
 @AllArgsConstructor
@@ -35,28 +36,43 @@ public class ProdutoDAO {
     }
 
     public List<Produto> buscarTodos() {
-        String jpql = "SELECT p FROM Produto p";
+        String queryJPQL = "SELECT p FROM Produto p";
         return this.entityManager
-            .createQuery(jpql, Produto.class)
+            .createQuery(queryJPQL, Produto.class)
             .getResultList();
     }
 
-    public List<Produto> buscarPorNome(String nome) {
-        String jpql = "SELECT p FROM Produto p WHERE p.nome = :nome";
+    public List<Produto> buscarPorNome(String nomeProduto) {
+        String queryJPQL = "SELECT p FROM Produto p WHERE p.nome = :nomeProduto";
         return this.entityManager
-            .createQuery(jpql, Produto.class)
-            .setParameter("nome", nome)
+            .createQuery(queryJPQL, Produto.class)
+            .setParameter("nomeProduto", nomeProduto)
             .getResultList();
     }
 
     public List<Produto> buscarPorNomeCategoria(String nomeCategoria) {
-        String jpql = "SELECT p FROM Produto p WHERE p.categoria.nome = :nomeCategoria";
+        String queryJPQL = "SELECT p FROM Produto p WHERE p.categoria.nome = :nomeCategoria";
         return this.entityManager
-            .createQuery(jpql, Produto.class)
+            .createQuery(queryJPQL, Produto.class)
             .setParameter("nomeCategoria", nomeCategoria)
             .getResultList();
     }
 
+    public BigDecimal retornaPrecoPorNomeProduto(String nomeProduto) {
+        String queryJPQL = "SELECT p.preco FROM Produto p WHERE p.nome = :nome";
+        return this.entityManager
+            .createQuery(queryJPQL, BigDecimal.class)
+            .setParameter("nome", nomeProduto)
+            .getSingleResult();
 
+    }
+
+    public BigDecimal retornaPrecoPorIdProduto(Long idProduto) {
+        String queryJPQL = "SELECT p.preco FROM Produto p WHERE p.id = :idProduto";
+        return this.entityManager
+            .createQuery(queryJPQL, BigDecimal.class)
+            .setParameter("idProduto", idProduto)
+            .getSingleResult();
+    }
 
 }
