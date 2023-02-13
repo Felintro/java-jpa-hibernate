@@ -20,4 +20,13 @@ public class CategoriaDAO {
         this.entityManager.persist(categoria);
     }
 
+    public void atualizar(Categoria categoria) {
+        this.entityManager.merge(categoria);
+    }
+
+    public void remover(Categoria categoria) {
+        categoria = this.entityManager.merge(categoria);
+        this.entityManager.remove(categoria);
+    }
+
 }
