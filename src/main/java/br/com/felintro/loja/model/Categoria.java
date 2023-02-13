@@ -6,6 +6,7 @@ package br.com.felintro.loja.model;
  */
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ import javax.persistence.*;
 @Table(name = "categoria")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Categoria {
 
     @Id
@@ -28,4 +30,8 @@ public class Categoria {
         this.nome = nome;
     }
 
+    @Override
+    public String toString() {
+        return "Categoria{" + "id=" + id + ", nome='" + nome + '\'' +'}';
+    }
 }
