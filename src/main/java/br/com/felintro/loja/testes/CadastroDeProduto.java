@@ -29,8 +29,16 @@ public class CadastroDeProduto {
         produtoDAO.buscarTodos().forEach(System.out::println);
 
         System.out.println("===================================");
+        produtoDAO.buscarPorNome("Xiaomi Pocophone F1").forEach(System.out::println);
 
-        System.out.println(produtoDAO.buscarPorNome("Xiaomi Pocophone F1").toString());
+        System.out.println("===================================");
+        produtoDAO.buscarPorNomeCategoria("Eletronicos").forEach(System.out::println);
+
+        System.out.println("==========Busca por nome===========");
+        System.out.println("Preço: " + produtoDAO.retornaPrecoPorNomeProduto(produto.getNome()).toString());
+
+        System.out.println("===========Busca por id============");
+        System.out.println("Preço: " + produtoDAO.retornaPrecoPorIdProduto(2L).toString());
     }
 
     private static void cadastrarProdutos() {
